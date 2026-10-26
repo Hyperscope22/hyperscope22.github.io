@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Spanish Unit 2 MCQ</title>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --card: #ffffff;
+    --ink: #1d1d1f;
+    --muted: #6b6b70;
+    --line: #e2e0da;
+    --accent: #2457c5;
+    --accent-soft: #e6edfb;
+    --warn: #b3541e;
+    --warn-soft: #fbeee5;
+    --bar-a: #2457c5;
+    --bar-b: #b9b6ad;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141416;
+      --card: #1e1e22;
+      --ink: #ececef;
+      --muted: #9a9aa2;
+      --line: #2e2e34;
+      --accent: #7ea3f5;
+      --accent-soft: #1f2a44;
+      --warn: #f0a070;
+      --warn-soft: #3a261a;
+      --bar-a: #7ea3f5;
+      --bar-b: #55555d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141416;
+    --card: #1e1e22;
+    --ink: #ececef;
+    --muted: #9a9aa2;
+    --line: #2e2e34;
+    --accent: #7ea3f5;
+    --accent-soft: #1f2a44;
+    --warn: #f0a070;
+    --warn-soft: #3a261a;
+    --bar-a: #7ea3f5;
+    --bar-b: #55555d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .top-inner {
+    max-width: 860px; margin: 0 auto; padding: 12px 16px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .top-inner h1 { font-size: 17px; margin: 0; flex: 1 1 auto; }
+  .progress { flex: 1 1 200px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
+  .bar { flex: 1; height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 80px; }
+  .intro { color: var(--muted); font-size: 15px; margin: 8px 0 24px; }
+  section.source {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    margin: 0 0 28px; overflow: hidden;
+  }
+  .source-head { padding: 18px 20px 6px; }
+  .source-head .range { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+  .source-head h2 { margin: 4px 0 6px; font-size: 20px; }
+  .source-head p { margin: 0 0 8px; color: var(--muted); font-style: italic; font-size: 15px; }
+  details.text { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 10px; }
+  details.text > summary {
+    cursor: pointer; padding: 12px 20px; font-weight: 600; font-size: 15px; list-style: none;
+  }
+  details.text > summary::-webkit-details-marker { display: none; }
+  details.text > summary::before { content: "▸ "; color: var(--accent); }
+  details.text[open] > summary::before { content: "▾ "; }
+  .passage { padding: 0 20px 16px; max-height: 60vh; overflow-y: auto; font-family: Georgia, "Times New Roman", serif; font-size: 16.5px; }
+  .passage p { margin: 0 0 10px; }
+  .passage .n { color: var(--muted); font-family: -apple-system, sans-serif; font-size: 12px; margin-right: 6px; }
+  .note {
+    margin: 10px 20px; padding: 10px 14px; border-radius: 8px;
+    background: var(--warn-soft); color: var(--ink); font-size: 14.5px;
+  }
+  u { text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  .chart { padding: 8px 20px 18px; font-family: -apple-system, sans-serif; }
+  .chart h3 { font-size: 14.5px; text-align: center; margin: 6px 0 14px; font-weight: 600; }
+  .row { display: grid; grid-template-columns: 110px 1fr; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .row .lbl { font-size: 13.5px; text-align: right; color: var(--ink); }
+  .bars div { height: 14px; margin: 2px 0; border-radius: 3px; position: relative; }
+  .bars .b { background: var(--bar-a); }
+  .bars .nb { background: var(--bar-b); }
+  .bars span { position: absolute; left: calc(100% + 6px); top: -2px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .legend { display: flex; gap: 18px; justify-content: center; font-size: 13px; color: var(--muted); margin-top: 8px; flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+  .chart small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+  .q { padding: 18px 20px; border-top: 1px solid var(--line); }
+  .q:first-of-type { border-top: 0; }
+  .q-stem { display: flex; gap: 10px; font-weight: 600; margin-bottom: 10px; }
+  .q-stem .num { color: var(--accent); min-width: 26px; }
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px;
+    border: 1px solid var(--line); border-radius: 10px; cursor: pointer; background: var(--card);
+    transition: border-color .12s, background .12s;
+  }
+  .opt:hover { border-color: var(--accent); }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .opt .letter {
+    flex: 0 0 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line);
+    display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--muted);
+  }
+  .opt.sel { border-color: var(--accent); background: var(--accent-soft); }
+  .opt.sel .letter { background: var(--accent); border-color: var(--accent); color: var(--card); }
+  .opt input:focus-visible + .letter { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 20px; }
+  button {
+    font: inherit; font-size: 15px; padding: 10px 16px; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--card); font-weight: 600; }
+  #summary { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: none; }
+  #summary h2 { margin: 0 0 10px; font-size: 18px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; margin: 10px 0 14px; }
+  .grid a {
+    text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 6px;
+    padding: 6px 0; text-align: center; font-size: 14px;
+  }
+  .grid a.miss { border-color: var(--warn); color: var(--warn); background: var(--warn-soft); }
+  .grid a b { color: var(--accent); }
+  @media (max-width: 520px) {
+    .row { grid-template-columns: 78px 1fr; }
+    .row .lbl { font-size: 12px; }
+    .bars div { max-width: calc(100% - 34px); }
+  }
+  @media print {
+    header.top, .actions, details.text > summary { display: none; }
+    details.text .passage { max-height: none; }
+    section.source { break-inside: auto; }
+    .q { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <h1>AP Spanish · Unit 2 Progress Check: MCQ</h1>
+    <div class="progress"><div class="bar"><span id="bar"></span></div><span id="count">0 / 21</span></div>
+  </div>
+</header>
+
+<main>
+  <p class="intro">El lenguaje y la cultura: la identidad. Haz clic en una respuesta para elegirla. Tus respuestas se guardan automáticamente en este navegador. Al final, pulsa <b>Revisar respuestas</b> para ver tu hoja de respuestas.</p>
+
+  <form id="quiz" autocomplete="off">
+
+  <!-- Fuente: audio -->
+  <section class="source">
+    <div class="source-head">
+      <div class="range">Preguntas 1–5</div>
+      <h2>El Carnaval de Barranquilla</h2>
+      <p>Este audio trata de una tradición folclórica colombiana. El reportaje original titulado “El Carnaval de Barranquilla” fue publicado por la UNESCO. © UNESCO / CC BY SA 3.0</p>
+    </div>
+    <div class="note">🔊 Fuente de audio: escúchala en tu clase o en AP Classroom antes de contestar.</div>
+    <div class="qs" data-q="1-5"></div>
+  </section>
+
+  <!-- Fuente: Unamuno -->
+  <section class="source">
+    <div class="source-head">
+      <div class="range">Preguntas 6–9</div>
+      <h2>Abel Sánchez: una historia de pasión</h2>
+      <p>Este texto trata de la vida de unos jóvenes. La novela original titulada <i>Abel Sánchez: una historia de pasión</i> fue publicada en España por el escritor español Miguel de Unamuno.</p>
+    </div>
+    <details class="text" open>
+      <summary>Leer el texto</summary>
+      <div class="passage">
+        <p><span class="n">1</span>No recordaban Abel Sánchez y Joaquín Monegro desde cuándo se conocían. Eran conocidos desde antes de la niñez, desde la primera infancia, pues ya sus sendas nodrizas se juntaban y los juntaban cuando aún ellos no sabían hablar. Aprendió cada uno de ellos a conocerse conociendo al otro. Y así vivieron y se hicieron juntos amigos desde nacimiento casi, más bien hermanos de crianza.</p>
+        <p><span class="n">2</span>En sus paseos, en sus juegos, en sus otras amistades comunes, parecía dominar e iniciarlo todo Joaquín, el más voluntarioso; pero era Abel quien, pareciendo ceder, hacía la suya siempre. Y es que le importaba más no obedecer que mandar. Casi nunca reñían. “¡Por mí como tú quieras...!” le decía Abel a Joaquín, y éste se exasperaba a las veces porque con aquel “¡como tú quieras...!” esquivaba las disputas.</p>
+        <p><span class="n">3</span>—<u>¡Nunca me dices que no!</u> —exclamaba Joaquín.</p>
+        <p><span class="n">4</span>—¿Y para qué? —respondía el otro.</p>
+        <p><span class="n">5</span>—Bueno, éste no quiere que vayamos al Pinar —dijo una vez aquél cuando varios compañeros se disponían a un paseo.</p>
+        <p><span class="n">6</span>—¿Yo? ¡pues no he de quererlo...! —exclamó Abel—. Sí, hombre, sí; como tú quiéras. ¡Vamos allá!</p>
+        <p><span class="n">7</span>—¡No, como yo quiera, no! ¡Ya te he dicho otras veces que no! ¡Como yo quiera no! ¡Tú no quieres ir!</p>
+        <p><span class="n">8</span>—Que sí, hombre...</p>
+        <p><span class="n">9</span>—Pues entonces no lo quiero yo...</p>
+        <p><span class="n">10</span>—Ni yo tampoco...</p>
+        <p><span class="n">11</span>—Eso no vale —gritó ya Joaquín—. ¡O con él o conmigo!</p>
+        <p><span class="n">12</span>Y todos se fueron con Abel, dejándole a Joaquín solo.</p>
+        <p><span class="n">13</span>Al comentar éste en sus Confesiones tal suceso de la infancia, escribía: “Ya desde entonces era él simpático, no sabía por qué, y antipático yo, sin que se me alcanzara mejor la causa de ello, y me dejaban solo. Desde niño me aislaron mis amigos”.</p>
+        <p><span class="n">14</span>Durante los estudios del bachillerato, que siguieron juntos, Joaquín era el empollón, el que iba a la caza de los premios, el primero en las aulas y el primero Abel fuera de ellas, en el patio del Instituto, en la calle, en el campo, en los novillos, entre los compañeros. Abel era el que hacía reír con sus gracias y, sobre todo, obtenía triunfos de aplauso por las caricaturas que de los catedráticos hacía. “Joaquín es mucho más aplicado, pero Abel es más listo... si se pusiera a estudiar...” Y este juicio común de los compañeros, sabido por Joaquín, no hacía sino envenenarle el corazón. Llegó a sentir la tentación de descuidar el estudio y tratar de vencer al otro en el otro campo, pero diciéndose: “¡bah! qué saben ellos...”, siguió fiel a su propio natural. Además, por más que procuraba aventajar al otro en ingenio y donosura no lo conseguía. Sus chistes no eran reídos y pasaba por ser fundamentalmente serio. “Tú eres fúnebre” —solía decirle Federico Cuadrado—, “<u>tus chistes son chistes de duelo</u>”.</p>
+      </div>
+    </details>
+    <div class="qs" data-q="6-9"></div>
+  </section>
+
+  <!-- Fuentes: bilingüismo -->
+  <section class="source">
+    <div class="source-head">
+      <div class="range">Preguntas 10–16</div>
+      <h2>Ventajas del bilingüismo en la infancia</h2>
+      <p><b>Fuente 1:</b> Este texto trata de los efectos del bilingüismo en el aprendizaje. El artículo original titulado “Ventajas del bilingüismo en la infancia” fue publicado en España por Guiainfantil.com.</p>
+      <p><b>Fuente 2:</b> Esta selección trata de los resultados académicos de las pruebas de estudiantes bilingües y no bilingües. El gráfico fue publicado en 2010 en España por “Programas de enseñanza bilingüe de la comunidad de Madrid”.</p>
+    </div>
+    <div class="note">📄 El artículo de la Fuente 1 está protegido por derechos de autor, así que no se reproduce aquí: léelo en tu cuadernillo (págs. 3–4). Frase subrayada de la pregunta 10, párr. 1: “Sin embargo, <u>esos pequeños fallos</u> suelen desaparecer con el tiempo.”</div>
+    <details class="text" open>
+      <summary>Ver el gráfico (Fuente 2)</summary>
+      <div class="chart" id="chart">
+        <h3>Resultados obtenidos en la prueba CDI* de 2009 en función del carácter bilingüe o no bilingüe de los Colegios públicos de Educación Infantil y Primaria por distritos municipales</h3>
+        <div id="chart-rows"></div>
+        <div class="legend"><span><i style="background:var(--bar-a)"></i>Colegios bilingües</span><span><i style="background:var(--bar-b)"></i>Colegios no bilingües</span></div>
+        <small>Puntuación en el examen (escala 0–30). *Conocimientos y Destrezas Indispensables.<br>Nota: La Comunidad de Madrid realiza todos los años las Pruebas de Conocimientos y Destrezas Indispensables (Pruebas CDI) a los alumnos de 6° curso de Educación Primaria y de 3° de Educación Secundaria Obligatoria para comprobar el grado de adquisición de los conocimientos y destrezas que se consideran indispensables para cada una de las etapas.</small>
+      </div>
+    </details>
+    <div class="qs" data-q="10-16"></div>
+  </section>
+
+  <!-- Fuente: Ponle acento -->
+  <section class="source">
+    <div class="source-head">
+      <div class="range">Preguntas 17–21</div>
+      <h2>Ponle acento</h2>
+      <p>Este artículo trata de una campaña de las Grandes Ligas de béisbol en los Estados Unidos. El artículo original, titulado “Ponle Acento: las Grandes Ligas reconocen la influencia de los beisbolistas latinoamericano,” fue publicado por el New York Times.</p>
+    </div>
+    <div class="note">📄 El artículo del New York Times prohíbe su redistribución, así que no se reproduce aquí: léelo en tu cuadernillo (págs. 5–6). Frase subrayada de la pregunta 18, párr. 5: González “<u>enarboló esta causa</u> al tuitear fotografías de su uniforme recientemente acentuado”.</div>
+    <div class="qs" data-q="17-21"></div>
+  </section>
+
+  </form>
+
+  <div class="actions">
+    <button type="button" class="primary" id="review">Revisar respuestas</button>
+    <button type="button" id="copy">Copiar respuestas</button>
+    <button type="button" id="print">Imprimir</button>
+    <button type="button" id="reset">Borrar todo</button>
+  </div>
+
+  <div id="summary" aria-live="polite">
+    <h2>Hoja de respuestas</h2>
+    <div id="summary-msg"></div>
+    <div class="grid" id="summary-grid"></div>
+  </div>
+</main>
+
+<script>
+const QUESTIONS = {
+  1: ["¿Cuál es el propósito del audio?", [
+    "Dar un panorama de la zona costeña colombiana",
+    "Describir los bailes tradicionales de Barranquilla",
+    "Presentar los instrumentos musicales que se utilizan en el Carnaval",
+    "Describir una tradición cultural que ocurre antes de la Cuaresma"]],
+  2: ["¿Qué revela la narradora sobre la historia de Barranquilla?", [
+    "Su ubicación geográfica ha contribuido a su diversidad cultural.",
+    "Los días posteriores al Carnaval son muy importantes para Barranquilla.",
+    "Por ser puerto fluvial, la ciudad ha tenido una importante industria naval.",
+    "En Barranquilla hay un importante culto a la santa María Magdalena."]],
+  3: ["Según el audio, ¿qué influyó para que Barranquilla se haya abierto a nuevas tendencias e ideas?", [
+    "Sus tradiciones religiosas",
+    "Su carácter de municipio",
+    "Su carácter comercial",
+    "Su famoso Carnaval"]],
+  4: ["¿Cuál de las siguientes características del baile “mico y micas” se menciona en el audio?", [
+    "Se baila mientras un coro canta a capela.",
+    "Es más popular que la cumbia.",
+    "Sus raíces provienen de América.",
+    "Se baila al ritmo de instrumentos de cuerdas."]],
+  5: ["Según el audio, ¿en qué se inspiran las representaciones dramáticas y musicales del Carnaval?", [
+    "En obras de teatro clásicas",
+    "En eventos del pasado y del presente",
+    "En cuentos infantiles",
+    "En diálogos de zarzuelas"]],
+  6: ["¿Cuál es el tema principal del texto?", [
+    "El retrato de una familia española",
+    "La historia de dos hermanos de sangre",
+    "Las travesuras de un grupo de amigos",
+    "La relación entre dos compañeros"]],
+  7: ["¿Qué sentimiento manifiesta Joaquín cuando le dice a Abel “¡Nunca me dices que no!”?", [
+    "Irritación", "Tristeza", "Malicia", "Vergüenza"]],
+  8: ["¿Qué indica sobre los chistes de Joaquín la frase “tus chistes son chistes de duelo”?", [
+    "Que no eran decentes",
+    "Que eran muy antiguos",
+    "Que eran chistes de niños",
+    "Que no eran cómicos"]],
+  9: ["Según el texto, ¿qué caracteriza la relación entre Abel y Joaquín?", [
+    "El odio mutuo", "La frialdad", "El apoyo mutuo", "La rivalidad"]],
+  10: ["¿A qué se refiere el autor al decir “esos pequeños fallos”?", [
+    "A los errores en los exámenes de lengua",
+    "A la resistencia a hablar una segunda lengua",
+    "Al uso inapropiado de algunas palabras",
+    "A las dificultades para la concentración"]],
+  11: ["De acuerdo al texto, ¿cómo podría influir el bilingüismo en la capacidad de aprendizaje de los niños?", [
+    "Los niños bilingües resuelven mejor los problemas que los monolingües.",
+    "Los niños bilingües son más equilibrados que los monolingües.",
+    "Los niños bilingües aprenden a leer más rápido que los monolingües.",
+    "Los niños bilingües suelen adaptarse con más rapidez a entornos distintos."]],
+  12: ["Según el artículo, ¿cómo se debe manejar el aprendizaje de un segundo idioma?", [
+    "El niño debe usar el segundo idioma exclusivamente.",
+    "La memorización es la clave del aprendizaje.",
+    "El niño debe oírlo y aprenderlo a su propio ritmo.",
+    "Los padres deben esperar a que el niño pida aprender un idioma."]],
+  13: ["¿Con qué afirmación estaría de acuerdo el autor del artículo?", [
+    "Los niños bilingües son poco flexibles en el aprendizaje.",
+    "Los niños bilingües tienen dificultades para la lectura.",
+    "No hay padres que reconozcan los beneficios del bilingüismo.",
+    "No hay evidencias científicas en contra del bilingüismo temprano."]],
+  14: ["¿Qué información presenta el gráfico?", [
+    "Resultados de las pruebas de aptitud física de acuerdo al tipo de colegio",
+    "Éxito académico de los alumnos de acuerdo al tipo de colegio",
+    "Cantidad de alumnos que pasaron las pruebas CDI de acuerdo al tipo de institución",
+    "Número de alumnos que asiste a cada tipo de institución"]],
+  15: ["Según el gráfico, ¿qué se puede afirmar de los colegios de Barajas y Villa de Vallecas?", [
+    "Que sus colegios monolingües son muy inferiores al resto de los colegios de otros distritos",
+    "Que sus colegios bilingües están a la par de los monolingües de otros distritos",
+    "Que en ambos el bilingüismo produce resultados muy superiores",
+    "Que en ambos el bilingüismo parece no mejorar los resultados académicos"]],
+  16: ["Luego de leer el artículo y analizar la información del gráfico, ¿qué se puede inferir sobre el bilingüismo?", [
+    "Hay un rechazo social contra la enseñanza bilingüe.",
+    "Los estudiantes de los colegios monolingües tienen mejores destrezas académicas.",
+    "Los colegios monolingües tienen, en general, menos recursos económicos.",
+    "Hay una relación positiva entre la enseñanza bilingüe y el éxito escolar."]],
+  17: ["¿Cuál es el propósito principal del artículo?", [
+    "Debatir el éxito de la iniciativa para reconocer jugadores latinoamericanos",
+    "Explicar cómo las Grandes Ligas han llegado a más público hispano",
+    "Analizar la composición étnica y lingüística de las Grandes Ligas",
+    "Informar sobre la campaña para acentuar los apellidos latinoamericanos"]],
+  18: ["¿Qué quiere decir la frase “enarboló la causa”?", [
+    "Cuestionó las intenciones de la iniciativa",
+    "Apoyó el proyecto para educar a los aficionados",
+    "Promovió el uso de acentos en los apellidos",
+    "Denunció a los otros jugadores por quejarse"]],
+  19: ["Según el artículo, ¿qué reacción quiere provocar la iniciativa en los equipos?", [
+    "Que consulten con expertos lingüísticos para escribir bien los apellidos",
+    "Que se comuniquen con sus jugadores sobre la ortografía de sus nombres",
+    "Que les pregunten a los jugadores y a los aficionados sobre sus preferencias",
+    "Que se aseguren de que los jugadores latinoamericanos se sientan vistos y respetados"]],
+  20: ["Según el artículo, ¿qué era común entre los jugadores latinoamericanos antes de la iniciativa “Ponle acento”?", [
+    "Querían que sus nombres fueran reconocidos.",
+    "No les interesaba mucho el tema de los acentos.",
+    "Su atención estaba centrada solo en su rendimiento deportivo.",
+    "Pensaban que el uniforme era la responsabilidad del club."]],
+  21: ["¿Qué se puede deducir sobre las Grandes Ligas a través de su campaña “Ponle acento”?", [
+    "Reconocen que los nombres y la identidad son importantes para sus jugadores latinos.",
+    "Consideran que estandarizar los estilos facilita la organización de la liga.",
+    "Buscan aumentar su base de aficionados en países hispanohablantes.",
+    "Pretenden actualizar la presentación visual de los uniformes para mantener una imagen moderna."]]
+};
+
+const CHART = [
+  ["Arganzuela", 23.4, 22.8], ["Barajas", 17.5, 23], ["Chamartín", 24.5, 20.3],
+  ["Fuencarral", 23.2, 20.7], ["Latina", 26.2, 21.2], ["Salamanca", 24.3, 18.8],
+  ["Villa de Vallecas", 14, 17.3]
+];
+
+const TOTAL = Object.keys(QUESTIONS).length;
+const LETTERS = ["A", "B", "C", "D"];
+const KEY = "ap-spanish-unit2-mcq";
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+}
+function save(a) {
+  try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {}
+}
+let answers = load();
+
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+document.querySelectorAll(".qs").forEach(box => {
+  const [lo, hi] = box.dataset.q.split("-").map(Number);
+  let html = "";
+  for (let n = lo; n <= hi; n++) {
+    const [stem, opts] = QUESTIONS[n];
+    html += `<div class="q" id="q${n}"><div class="q-stem"><span class="num">${n}.</span><span>${esc(stem)}</span></div><div class="opts" role="radiogroup">`;
+    opts.forEach((o, i) => {
+      const L = LETTERS[i];
+      html += `<label class="opt"><input type="radio" name="q${n}" value="${L}"><span class="letter">${L}</span><span>${esc(o)}</span></label>`;
+    });
+    html += `</div></div>`;
+  }
+  box.innerHTML = html;
+});
+
+document.getElementById("chart-rows").innerHTML = CHART.map(([d, b, nb]) =>
+  `<div class="row"><div class="lbl">${d}</div><div class="bars">
+     <div class="b" style="width:${b / 30 * 100}%"><span>${b}</span></div>
+     <div class="nb" style="width:${nb / 30 * 100}%"><span>${nb}</span></div>
+   </div></div>`).join("");
+
+function render() {
+  document.querySelectorAll(".opt").forEach(l => {
+    const inp = l.querySelector("input");
+    inp.checked = answers[inp.name.slice(1)] === inp.value;
+    l.classList.toggle("sel", inp.checked);
+  });
+  const done = Object.keys(answers).length;
+  document.getElementById("count").textContent = `${done} / ${TOTAL}`;
+  document.getElementById("bar").style.width = `${done / TOTAL * 100}%`;
+  if (document.getElementById("summary").style.display === "block") summarize();
+}
+
+document.getElementById("quiz").addEventListener("change", e => {
+  if (e.target.type !== "radio") return;
+  answers[e.target.name.slice(1)] = e.target.value;
+  save(answers);
+  render();
+});
+
+function summarize() {
+  const missing = [];
+  let grid = "";
+  for (let n = 1; n <= TOTAL; n++) {
+    const a = answers[n];
+    if (!a) missing.push(n);
+    grid += `<a href="#q${n}" class="${a ? "" : "miss"}">${n}. <b>${a || "—"}</b></a>`;
+  }
+  document.getElementById("summary-grid").innerHTML = grid;
+  document.getElementById("summary-msg").textContent = missing.length
+    ? `Te faltan ${missing.length}: ${missing.join(", ")}. Haz clic en un número para ir a la pregunta.`
+    : "¡Has contestado todas las preguntas!";
+}
+
+document.getElementById("review").onclick = () => {
+  const s = document.getElementById("summary");
+  s.style.display = "block";
+  summarize();
+  s.scrollIntoView({ behavior: "smooth" });
+};
+
+document.getElementById("copy").onclick = async e => {
+  const text = Array.from({ length: TOTAL }, (_, i) => `${i + 1}. ${answers[i + 1] || "—"}`).join("\n");
+  try {
+    await navigator.clipboard.writeText(text);
+    e.target.textContent = "¡Copiado!";
+  } catch (err) {
+    window.prompt("Copia tus respuestas:", text.replace(/\n/g, "  "));
+  }
+  setTimeout(() => e.target.textContent = "Copiar respuestas", 1500);
+};
+
+document.getElementById("print").onclick = () => {
+  document.querySelectorAll("details.text").forEach(d => d.open = true);
+  window.print();
+};
+
+document.getElementById("reset").onclick = () => {
+  if (!confirm("¿Borrar todas tus respuestas?")) return;
+  answers = {};
+  save(answers);
+  render();
+};
+
+render();
+</script>
+</body>
+</html>
